@@ -8,7 +8,7 @@ import { inngest, functions } from './config/inngest.js';
 // configuration
 const PORT = ENV.PORT;
 const app = express();
-app.use(clerkMiddleware);
+app.use(clerkMiddleware());
 app.use(express.json());
 app.use(cors());
 // routes
