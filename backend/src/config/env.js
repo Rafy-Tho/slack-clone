@@ -4,6 +4,7 @@ dotenv.config();
 export const ENV = {
   PORT: process.env.PORT || 5000,
   MONGO_URI: process.env.MONGO_URI,
+  MONGO_LOCAL: process.env.MONGO_LOCAL || 'mongodb://localhost:27017/slack-clone',
   NODE_ENV: process.env.NODE_ENV || 'development',
   CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
   CLERK_PUBLISHABLE_KEY: process.env.CLERK_PUBLISHABLE_KEY,
