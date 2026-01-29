@@ -15,6 +15,9 @@ app.use(cors());
 // Set up the "/api/inngest" (recommended) routes with the serve handler
 app.use('/api/inngest', serve({ client: inngest, functions }));
 
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 // server
 const server = async () => {
   try {
