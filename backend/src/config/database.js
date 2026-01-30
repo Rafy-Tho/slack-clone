@@ -4,8 +4,8 @@ import { ENV } from './env.js';
 const connectDB = async () => {
   try {
     // Use remote MongoDB (Atlas) if available, otherwise use local
-    const mongoUri = ENV.MONGO_URI || ENV.MONGO_LOCAL;
-    
+    const mongoUri = ENV.MONGO_URI;
+
     const conn = await mongoose.connect(mongoUri);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
