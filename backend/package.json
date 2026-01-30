@@ -4,7 +4,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch src/server.js"
+    "dev": "cross-env NODE_OPTIONS=\"--import ./instrument.js\" nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -12,14 +12,18 @@
   "description": "",
   "dependencies": {
     "@clerk/express": "^1.7.66",
+    "@sentry/node": "^10.38.0",
     "cors": "^2.8.6",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "inngest": "^3.49.3",
-    "mongoose": "^9.1.5"
+    "mongoose": "^9.1.5",
+    "nodemon": "^3.1.11",
+    "stream-chat": "^9.30.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "cross-env": "^10.1.0",
     "eslint": "^9.39.2",
     "globals": "^17.1.0"
   }
