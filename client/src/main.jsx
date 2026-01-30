@@ -1,22 +1,21 @@
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.jsx';
 import {
-  createBrowserRouter,
   createRoutesFromChildren,
   matchRoutes,
   useLocation,
   useNavigationType,
 } from 'react-router';
+import App from './App.jsx';
+import './index.css';
 
 import { ClerkProvider } from '@clerk/clerk-react';
-import { BrowserRouter } from 'react-router';
+import * as Sentry from '@sentry/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
+import { BrowserRouter } from 'react-router';
 import AuthProvider from './providers/AuthProvider.jsx';
-import * as Sentry from '@sentry/react';
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
