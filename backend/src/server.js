@@ -25,6 +25,7 @@ app.use('/api/chat', chatRoutes);
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
+
 Sentry.setupExpressErrorHandler(app);
 // server
 const server = async () => {
