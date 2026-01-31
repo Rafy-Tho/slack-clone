@@ -39,6 +39,7 @@ function CreateChannelModal({ onClose }) {
   useEffect(() => {
     const getUser = async () => {
       if (!client?.user) return;
+      setLoadingUsers(true);
       try {
         const response = await client.queryUsers(
           {
@@ -58,6 +59,8 @@ function CreateChannelModal({ onClose }) {
           },
         });
         setError(error.message);
+      } finally {
+        setLoadingUsers(false);
       }
     };
     getUser();
