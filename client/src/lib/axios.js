@@ -7,7 +7,7 @@ const BASE_URL =
     ? 'http://localhost:5000/api'
     : 'https://slack-clone-phi.vercel.app/api';
 
-const axiosInstance = axios.create({
+export const axiosInstance = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
 });

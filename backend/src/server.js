@@ -13,7 +13,7 @@ const PORT = ENV.PORT;
 const app = express();
 app.use(clerkMiddleware());
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
 
 app.get('/debug-sentry', (req, res) => {
   throw new Error('My first Sentry error!');
