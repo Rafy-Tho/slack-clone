@@ -12,9 +12,12 @@ import {
   Thread,
   Window,
   Channel,
+  ChannelList,
 } from 'stream-chat-react';
-import { PlusIcon } from 'lucide-react';
+import { HashIcon, PlusIcon, UserIcon } from 'lucide-react';
 import CreateChannelModal from '../components/CreateChannelModal';
+import CustomChannelPreview from '../components/CustomChannelPreview';
+import UsersList from '../components/UsersList';
 function HomePage() {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [activeChannel, setActiveChannel] = useState(null);
@@ -68,6 +71,42 @@ function HomePage() {
                   </button>
                 </div>
                 {/* channels list */}
+                <ChannelList
+                  filters={{ members: { $in: [chatClient?.user?.id] } }}
+                  options={{
+                    state: true,
+                    watch: true,
+                  }}
+                  Preview={({ channel }) => (
+                    <CustomChannelPreview
+                      channel={channel}
+                      activeChannel={activeChannel}
+                      setActiveChannel={(channel) =>
+                        setSearchParams({ channel: channel.id })
+                      }
+                    />
+                  )}
+                  List={({ children, loading, error }) => (
+                    <div className="channel-sections">
+                      <div className="section-header">
+                        <div className="section-title">
+                          <HashIcon className="w-4 h-4" />
+                          <span className="text-sm">Channels</span>
+                        </div>
+                      </div>
+                      {loading && <div>Loading...</div>}
+                      {error && <div>Error: {error.message}</div>}
+                      <div className="channels-list">{children}</div>
+                      <div className="section-header direct-messages">
+                        <div className="section-title">
+                          <UserIcon className="w-4 h-4" />
+                          <span className="text-sm">Direct Messages</span>
+                        </div>
+                      </div>
+                      <UsersList activeChannel={activeChannel} />
+                    </div>
+                  )}
+                />
               </div>
             </div>
           </div>
