@@ -6,7 +6,7 @@ import { StreamChat } from 'stream-chat';
 import * as Sentry from '@sentry/react';
 
 const STREAM_API_KEY = import.meta.env.VITE_STREAM_API_KEY;
-
+console.log(STREAM_API_KEY);
 export const useStreamChat = () => {
   const { user } = useUser();
   const [chatClient, setChatClient] = useState(null);

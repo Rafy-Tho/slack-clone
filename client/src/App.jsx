@@ -3,6 +3,8 @@ import * as Sentry from '@sentry/react';
 import { Navigate, Route, Routes } from 'react-router';
 import AuthPage from './pages/AuthPage';
 import HomePage from './pages/HomePage';
+import CallPage from './pages/CallPage';
+
 const SentryRoutes = Sentry.withSentryReactRouterV7Routing(Routes);
 function App() {
   const { isSignedIn, isLoaded } = useAuth();
