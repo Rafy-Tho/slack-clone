@@ -20,7 +20,7 @@ import AuthProvider from './providers/AuthProvider.jsx';
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 Sentry.init({
-  dsn: 'https://3f891c82733458c7522449a36720b46d@o4510792385495040.ingest.us.sentry.io/4510799785295872',
+  dsn: import.meta.env.VITE_SENTRY_DSN,
   integrations: [
     Sentry.reactRouterV7BrowserTracingIntegration({
       useEffect: React.useEffect,
